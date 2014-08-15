@@ -1,0 +1,206 @@
+@import 'bourbon/bourbon';
+@import 'includes/normalize';
+
+$red: #EA2E5D;
+$blue: #3C97E8;
+$border: 3px;
+
+
+@mixin vcenter($w){
+	position: absolute;
+	top:50%;
+	margin-top: ($w / 2) * -1;
+}
+
+@mixin hcenter($h){
+	position: absolute;
+	left:50%;
+	margin-left: ($h / 2) * -1;
+}
+
+@mixin center($w,$h){
+	
+	@include vcenter($w);
+	@include hcenter($h);
+	
+}
+
+@mixin rsheight($h){
+	width:100%;
+	&:before{
+		content:"";
+		display: block;
+		padding-top: $h;
+	}
+}
+
+
+body {
+	background-color: #303030;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-image: inline-image('background.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.lines{
+	$pos:20%;
+	position: absolute;
+	width: 100%;
+	@include vcenter(1px);
+	
+	.line1,.line2{
+		position: absolute;
+		border:1px solid white;	
+	}
+	
+	.line1{
+		left: 0px;
+		width: $pos;
+	}
+	
+	.line2{
+		right: 0px;
+		width: $pos;
+	}
+}
+.square{
+	$dim:240px;
+	width: $dim;
+	height: $dim;
+	@include center($dim,$dim);
+} 
+
+
+.circle{
+	$dim:130px;
+	width: $dim;
+	height: $dim;
+	border: $border solid white;
+	border-radius: 100%;
+	@include center($dim,$dim);
+	background-image: inline-image('stupid_logo.svg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+}
+
+.goal{
+	$dim:40px;
+	$pos:15px;
+	position: absolute;
+	width: $dim;
+	@include hcenter($dim);
+	
+	
+	&.blue{
+		top:$pos;
+		border-top: $border solid $blue;
+	}
+	
+	&.red{
+		bottom:$pos;
+		border-bottom: $border solid $red;	
+	}
+}
+
+
+.player{
+	$dim:50px;
+	width: $dim;
+	height: $dim;
+	position: absolute;
+	border-radius: 100%;
+	overflow:hidden;
+	box-sizing: border-box;
+	text-align: center;
+
+	
+	.border{
+		display: block;
+		border:$border solid white;
+		box-sizing: border-box;
+		width:100%;
+		height:100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border-radius: 100%;
+		z-index: 1;
+	}
+	
+	.image{
+		z-index: 0;
+		height: 100%;
+		vertical-align: middle;
+		line-height: $dim;
+	}
+}
+
+.player1{
+	top: 0px;left: 0px;
+}
+
+.player2{
+	top: 0px;right: 0px;
+}
+
+.player3{
+	bottom: 0px;left: 0px;
+}
+
+.player4{
+	bottom: 0px;right: 0;
+}
+
+.player1,.player3{
+	.border{
+		border-color:$red;
+	}
+}
+
+.player2,.player4{
+	.border{
+		border-color:$blue;
+	}
+}
+
+
+.header{
+	top:20px;
+	width: 200px;
+	@include hcenter(200px);
+	
+	.image{
+		background-image: inline-image('title_header.svg');
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		@include rsheight(24.24%);
+	}
+}
+
+.footer{
+	bottom:20px;
+	width: 220px;
+	@include hcenter(220px);
+	
+	.image{
+		background-image: inline-image('title_footer.svg');
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		@include rsheight(3.62%);
+	}
+}
+
