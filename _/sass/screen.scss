@@ -179,7 +179,7 @@ body {
 
 
 .header{
-	top:20px;
+	top:15px;
 	width: 200px;
 	@include hcenter(200px);
 	
@@ -193,16 +193,17 @@ body {
 }
 
 .footer{
-	bottom:20px;
-	width: 220px;
-	@include hcenter(220px);
+	$dim: 300px;
+	bottom:15px;
+	width: $dim;
+	@include hcenter($dim);
 	
 	.image{
 		background-image: inline-image('title_footer.svg');
 		background-position: center top;
 		background-repeat: no-repeat;
 		background-size: cover;
-		@include rsheight(3.71%); 
+		@include rsheight(4.28%);  
 	}
 }
 
