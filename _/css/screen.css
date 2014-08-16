@@ -223,6 +223,8 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .container {
@@ -256,14 +258,14 @@ body {
 }
 
 .square {
-  width: 240px;
-  height: 240px;
+  width: 260px;
+  height: 260px;
   position: absolute;
   top: 50%;
-  margin-top: -120px;
+  margin-top: -130px;
   position: absolute;
   left: 50%;
-  margin-left: -120px;
+  margin-left: -130px;
 }
 
 .circle {
@@ -300,8 +302,8 @@ body {
 }
 
 .player {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   position: absolute;
   border-radius: 100%;
   overflow: hidden;
@@ -324,7 +326,7 @@ body {
   z-index: 0;
   height: 100%;
   vertical-align: middle;
-  line-height: 50px;
+  line-height: 60px;
 }
 
 .player1 {

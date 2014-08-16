@@ -28,19 +28,34 @@
 			width: 0,
 			opacity: 0,
 			ease: Power3.easeInOut
-		}, 0.25, "-=0.5");
+		}, 0, "-=0.5");
 
 
-		t1.staggerFrom($goal, 1, {
-			x: -100,
-			width: 0,
-			ease: Power3.easeInOut
-		}, 0.25, "-=0.5");
+//		t1.staggerFrom($goal, 1, {
+//			x: -100,
+//			width: 0,
+//			ease: Power3.easeInOut
+//		}, 0.25, "-=0.5");
 
+		t1.add(
+			TweenMax.from($goal.eq(1),1,{
+				x:-200,
+				width:0,
+				ease: Power3.easeInOut
+			}), "-=0.5"
+		);
+		
+		t1.add(
+			TweenMax.from($goal.eq(0),1,{
+				x:200,
+				width:0,
+				ease: Power3.easeInOut
+			}), "-=0.8"
+		);
 
 		t1.staggerFrom($playerBorder, 1, {
 			css: {
-				"left": "50px",
+				"left": "70px",
 				borderWidth: "50px",
 				borderColor: "#fff",
 			},
@@ -75,35 +90,24 @@
 		
 		t2.pause();
 		
-		t2.staggerTo($playerImage, 0.15, {
-			opacity: 0,
-			ease: Power3.easeInOut,
-			delay:0.25,
-		}, 0.15);
+		var borderWidthAnivalue = parseInt($playerBorder.eq(0).css("width")) / 2;
 		
 		t2.staggerTo($playerBorder, 0.5, {
+			delay:0.25,
 			css: {
-				"left": "50px",
-				borderWidth: "50px",
+				borderWidth: borderWidthAnivalue + "px",
 			},
-			ease: Power3.easeInOut,
-			onComplete:function(){
-				newNumbers();
-			}
-		}, 0.15, "-=0.75");
+			ease: Power3.easeInOut
+		}, 0.1, null, function(){
+			newNumbers();
+		});
 		
 		t2.staggerTo($playerBorder, 1, {
 			css: {
-				"left": "0px",
 				borderWidth: "3px",
 			},
 			ease: Power3.easeInOut
-		}, 0.15, "-=0.25");
-
-		t2.staggerTo($playerImage, 0.5, {
-			opacity: 1,
-			ease: Power3.easeInOut
-		}, 0.15, "-=1");
+		}, 0.1, "-=0.25");
 
 
 		function shakeEventDidOccur() {
@@ -116,7 +120,6 @@
 			count.sort(function () {
 				return Math.random() < 0.5 ? 1 : -1;
 			});
-			
 			$playerImage.each(function(i,el){
 				$(el).html(count[i]);
 			})
