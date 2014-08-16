@@ -97,17 +97,22 @@
 			css: {
 				borderWidth: borderWidthAnivalue + "px",
 			},
-			ease: Power3.easeInOut
+			ease: Power3.easeOut
 		}, 0.1, null, function(){
 			newNumbers();
 		});
 		
-		t2.staggerTo($playerBorder, 1, {
+		t2.staggerTo($player, 1, {
+			rotationY:360,
+			ease: Power3.easeInOut
+		}, 0.1, "-=0.65");
+		
+		t2.staggerTo($playerBorder, 0.5, {
 			css: {
 				borderWidth: "3px",
 			},
-			ease: Power3.easeInOut
-		}, 0.1, "-=0.25");
+			ease: Power3.easeOut
+		}, 0.1, "-=0.65");
 
 
 		function shakeEventDidOccur() {
