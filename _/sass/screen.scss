@@ -55,27 +55,28 @@ body {
 	//background-attachment: fixed;
 }
 
-.lines{
-	$pos:20%;
-	position: absolute;
-	width: 100%;
-	@include vcenter(1px);
-	
-	.line1,.line2{
-		position: absolute;
-		border:1px solid white;	
-	}
-	
-	.line1{
-		left: 0px;
-		width: $pos;
-	}
-	
-	.line2{
-		right: 0px;
-		width: $pos;
-	}
-}
+//.lines{
+//	$pos:20%;
+//	position: absolute;
+//	width: 100%;
+//	@include vcenter(1px);
+//	
+//	.line1,.line2{
+//		position: absolute;
+//		border:1px solid white;	
+//	}
+//	
+//	.line1{
+//		left: 0px;
+//		width: $pos;
+//	}
+//	
+//	.line2{
+//		right: 0px;
+//		width: $pos;
+//	}
+//}
+
 .square{
 	$dim:260px;
 	width: $dim;
@@ -106,12 +107,12 @@ body {
 	
 	
 	&.blue{
-		top:$pos;
-		border-top: $border solid $blue;
+		bottom:$pos;
+		border-top: $border solid $blue; 
 	}
 	
 	&.red{
-		bottom:$pos;
+		top:$pos;
 		border-bottom: $border solid $red;	
 	}
 }
@@ -179,9 +180,10 @@ body {
 
 
 .header{
+	$dim:180px;
 	top:15px;
-	width: 200px;
-	@include hcenter(200px);
+	width: $dim;
+	@include hcenter($dim);
 	
 	.image{
 		background-image: inline-image('title_header.svg');
