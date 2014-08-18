@@ -7,7 +7,7 @@
 		var $player = $('.player'),
 			$playerBorder = $('.player .border'),
 			$playerImage = $('.player .image'),
-			$line = $('.line'),
+			//$line = $('.line'),
 			$circle = $('.circle'),
 			$goal = $('.goal'),
 			$header = $('.header'),
@@ -24,11 +24,11 @@
 		}, 0.25);
 
 
-		t1.staggerFrom($line, 0.5, {
-			width: 0,
-			opacity: 0,
-			ease: Power3.easeInOut
-		}, 0, "-=0.5");
+//		t1.staggerFrom($line, 0.5, {
+//			width: 0,
+//			opacity: 0,
+//			ease: Power3.easeInOut
+//		}, 0, "-=0.5");
 
 
 //		t1.staggerFrom($goal, 1, {
@@ -38,15 +38,15 @@
 //		}, 0.25, "-=0.5");
 
 		t1.add(
-			TweenMax.from($goal.eq(1),1,{
+			TweenMax.from($goal.eq(0),1,{
 				x:-200,
 				width:0,
 				ease: Power3.easeInOut
-			}), "-=0.5"
+			}), "-=0.6"
 		);
 		
 		t1.add(
-			TweenMax.from($goal.eq(0),1,{
+			TweenMax.from($goal.eq(1),1,{
 				x:200,
 				width:0,
 				ease: Power3.easeInOut
